@@ -1,4 +1,4 @@
-function printVector(arr) {
+function consoleLog(arr) {
   if (arr.length != 1) {
     let temp = ''
     for (let i = 0; i < arr.length; i++) {
@@ -8,16 +8,16 @@ function printVector(arr) {
   }
 }
 
-function findWays(arr, i ,n) {
+function count(arr, i ,n) {
   if (n == 0) {
-    printVector(arr)
+    consoleLog(arr)
   }
   for (let j = 1; j < n+1; j++) {
     arr.push(j)
-    findWays(arr, j, n-j)
+    count(arr, j, n-j)
     arr.pop()
   }
   return ''
 }
 
-console.log(findWays([], 1, 4));
+console.log(count([], 1, 4));

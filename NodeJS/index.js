@@ -1,11 +1,12 @@
 function getPrimes(num) {
-  let array = [];
-  let prime;
-  for (let i = 2; i <= num - 1; i++) {
-    for (let j = 2; (prime = i === j || i % j !== 0) && j <= i / 2; j++) { }
-    prime && array.push(i);
+  let result = []
+  for (let i = 2; i < num; i++) {
+    if ((i % 2 !== 0 && i % 3 !== 0) || i == 2 || i == 3 ) {
+      result.push(i)
+    }
   }
-  return array;
+  return result
 }
-console.log(getPrimes(5));
-console.log(getPrimes(10));
+
+console.log(getPrimes(5))
+console.log(getPrimes(10))
