@@ -1,29 +1,23 @@
-let data = 4
 
-function algorithmic(num) {
-  let result = []
-  let final = []
-  for (let i = 1; i <= num; i++) {
-    ((i + (i - num)) <= 4) ? result.push(i) : ''
-    let temp = []
-    let numTemp = num
-    if (i <= num) {
-      do {
-        temp.push(i)
-        numTemp -= 1
-      } while (numTemp !== 0);
+function printVector(arr) {
+  if (arr.length != 1) {
+    let temp = ''
+    for (let i = 0; i < arr.length; i++) {
+      temp += arr[i] + ' '
     }
-    final.push(temp)
+    console.log(temp);
   }
-  return final
 }
 
-console.log(algorithmic(data));
+function findWays(arr, i ,n) {
+  if (n == 0) {
+    printVector(arr)
+  }
+  for (let j = 1; j < n+1; j++) {
+    arr.push(j)
+    findWays(arr, j, n-j)
+    arr.pop()
+  }
+}
 
-/*
-cari susunan angka num(4)
-setelah ketemu cek array ke satu bisa ke angka empat dengan nilai apa saja
-loop susunan angka
-jika loop[0] <= num(4) maka loop[0] akan loop lagi
-loop kedua sampai num(4) habis
-*/
+console.log(findWays([], 1, 4));
