@@ -1,4 +1,3 @@
-
 function printVector(arr) {
   if (arr.length != 1) {
     let temp = ''
@@ -18,6 +17,7 @@ function findWays(arr, i ,n) {
     findWays(arr, j, n-j)
     arr.pop()
   }
+  return ''
 }
 
 console.log(findWays([], 1, 4));
